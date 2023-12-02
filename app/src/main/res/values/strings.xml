@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MathMaster</string>
+    <string name="start_score">0/0</string>
+    <string name="enter_answer">Enter Number</string>
+    <string name="skip">Skip</string>
+    <string name="submit">Submit</string>
+    <string name="operator">+</string>
+    <string name="big_num">big_num</string>
+    <string name="small">small</string>
+</resources>
