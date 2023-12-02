@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/Results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/results"
+        android:textSize="40sp"
+        />
+
+    <TextView
+        android:id="@+id/numCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Results"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/correct"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/numCorrectNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Results"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/numCorrect"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/zero"
+        android:textSize="35sp"
+        android:textColor="@color/green"
+        />
+
+    <TextView
+        android:id="@+id/numIncorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/numCorrect"
+        app:layout_constraintLeft_toLeftOf="@id/numCorrect"
+        android:layout_marginTop="80dp"
+        android:text="@string/incorrect"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/numIncorrectNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/numCorrectNum"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/numIncorrect"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/zero"
+        android:textSize="35sp"
+        android:textColor="@color/red"
+        />
+
+    <TextView
+        android:id="@+id/percentRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/numIncorrect"
+        app:layout_constraintLeft_toLeftOf="@id/numCorrect"
+        android:layout_marginTop="80dp"
+        android:text="@string/overall_performance"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/PercentNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/percent"
+        app:layout_constraintBottom_toBottomOf="@id/percentRight"
+        android:layout_marginTop="80dp"
+        android:text="100.0"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/percentRight"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/percent"
+        android:textSize="35sp"
+        />
+
+    <Button
+        android:id="@+id/skip_button"
+        android:text="Back to Home"
+        android:textSize="30sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:onClick="Skip" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

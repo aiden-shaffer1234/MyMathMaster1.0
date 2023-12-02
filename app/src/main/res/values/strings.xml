@@ -7,4 +7,11 @@
     <string name="operator">+</string>
     <string name="big_num">big_num</string>
     <string name="small">small</string>
+    <string name="results">Results:</string>
+    <string name="percent">%</string>
+    <string name="correct">Correct:</string>
+    <string name="incorrect">Incorrect/Skipped:</string>
+    <string name="overall_performance">Overall Performance:</string>
+    <string name="num">num</string>
+    <string name="zero">0</string>
 </resources>
