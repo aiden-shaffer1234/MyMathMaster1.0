@@ -4,15 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="20dp">
 
     <TextView
+        android:id="@+id/chooseOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:text="Choose Topic:"
+        android:textSize="25sp"
+        android:textColor="?android:textColorPrimary"/>
+    <Button
+        android:id="@+id/addition"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/chooseOption"
+        android:text="@string/addition"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+
+    <Button
+        android:id="@+id/subtraction"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/addition"
+        android:text="@string/subtraction"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/multiplication"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/subtraction"
+        android:text="@string/multiplication"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/division"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/multiplication"
+        android:text="@string/division"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src = "@drawable/images"
+        app:layout_constraintTop_toBottomOf="@id/division"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

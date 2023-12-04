@@ -14,4 +14,25 @@
     <string name="overall_performance">Overall Performance:</string>
     <string name="num">num</string>
     <string name="zero">0</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="division">Division /</string>
+    <string name="multiplication">Multiplication *</string>
+    <string name="subtraction">Subtraction -</string>
+    <string name="addition">Addition +</string>
 </resources>

@@ -4,6 +4,8 @@
         <item name="colorPrimary">@color/blue_800</item>
         <item name="colorPrimaryDark">@color/blue_900</item>
         <item name="colorAccent">@color/blue_400</item>
+<!--        <item name="android:textColorPrimary">@color/black</item>-->
+<!--        <item name="android:textColorSecondary">@color/black</item>-->
     </style>
 
     <style name="Theme.MyMathMaster" parent="Base.Theme.MyMathMaster" />

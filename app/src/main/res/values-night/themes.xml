@@ -1,7 +1,9 @@
 <resources>
-    <style name="Theme.StudyHelper" parent="Theme.AppCompat.DayNight">
+    <style name="Theme.StudyHelper" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <item name="colorPrimary">@color/paleblue_900</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">@color/blue_900</item>
+<!--        <item name="android:textColorPrimary">@color/white</item>-->
+<!--        <item name="android:textColorSecondary">@color/white</item>-->
     </style>
 </resources>
