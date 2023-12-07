@@ -3,6 +3,7 @@ package com.zybooks.mymathmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -43,18 +44,32 @@ public class GameActivity extends AppCompatActivity {
         // Set a listener for the start game button
         startGameButton.setOnClickListener(v -> onStartGameClicked());
     }
+    public void onRadioButtonClicked(View view) {
+        int id = view.getId();
+
+        if (id == R.id.easy) {
+            difficultyLevel = "Easy";
+        } else if (id == R.id.medium) {
+            difficultyLevel = "Medium";
+        } else if (id == R.id.hard) {
+            difficultyLevel = "Hard";
+        }
+    }
 
     private void onStartGameClicked() {
         // Get the selected time
         String selectedTime = chooseTimeSpinner.getSelectedItem().toString();
 
-        //for the following activities
-        // Start the game activity with selected settings
+        // Get the selected difficulty level
+        int selectedRadioButtonId = difficultyRadioGroup.getCheckedRadioButtonId();
+        RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
+        String selectedDifficulty = selectedRadioButton.getText().toString();
+
+        // Start GameLogicActivity with selected settings
         Intent intent = new Intent(this, GameLogicActivity.class);
         intent.putExtra("OperationType", operationType);
-        intent.putExtra("DifficultyLevel", difficultyLevel);
+        intent.putExtra("DifficultyLevel", selectedDifficulty);
         intent.putExtra("TimeLimit", selectedTime);
-        //after choosing a difficulty it goes back to the home page
         startActivity(intent);
     }
 }

@@ -23,6 +23,18 @@
             android:label="@string/title_activity_gameA"
             android:parentActivityName=".MainActivity"/>
         <activity
+            android:name=".GameLogicActivity"
+            android:exported="false"
+            android:label="GameLogicActivity"
+            android:parentActivityName=".GameActivity"
+            />
+        <activity
+            android:name=".ResultsActivity"
+            android:exported="false"
+            android:label="ResultsActivity"
+            android:parentActivityName=".GameLogicActivity"
+            />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
