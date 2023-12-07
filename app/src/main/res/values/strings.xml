@@ -16,6 +16,7 @@
     <string name="zero">0</string>
     <string name="settings">Settings</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_gameA">GameActivity</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -41,4 +42,10 @@
     <string name="hard">Hard</string>
     <string name="medium">Medium</string>
     <string name="easy">Easy</string>
+    <string-array name="time_array">
+        <item>1:00</item>
+        <item>1:30</item>
+        <item>2:00</item>
+        <item>2:3</item>
+    </string-array>
 </resources>

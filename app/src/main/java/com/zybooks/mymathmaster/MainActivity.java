@@ -7,15 +7,35 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
+    private Button additionButton, subtractionButton, multiplicationButton, divisionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        // Initialize buttons
+        additionButton = findViewById(R.id.addition);
+        subtractionButton = findViewById(R.id.subtraction);
+        multiplicationButton = findViewById(R.id.multiplication);
+        divisionButton = findViewById(R.id.division);
 
+        // Set click listeners for buttons
+        additionButton.setOnClickListener(v -> startGameActivity("Addition"));
+        subtractionButton.setOnClickListener(v -> startGameActivity("Subtraction"));
+        multiplicationButton.setOnClickListener(v -> startGameActivity("Multiplication"));
+        divisionButton.setOnClickListener(v -> startGameActivity("Division"));
+    }
+    private void startGameActivity(String operationType) {
+        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+        intent.putExtra("OperationType", operationType);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
