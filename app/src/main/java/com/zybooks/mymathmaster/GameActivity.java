@@ -11,7 +11,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
-
     private Spinner chooseTimeSpinner;
     private RadioGroup difficultyRadioGroup;
     private Button startGameButton;
