@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
-    private Button additionButton, subtractionButton, multiplicationButton, divisionButton;
+    private Button additionButton, subtractionButton, multiplicationButton, divisionButton, accountSumButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,17 @@ public class MainActivity extends AppCompatActivity {
         subtractionButton.setOnClickListener(v -> startGameActivity("Subtraction"));
         multiplicationButton.setOnClickListener(v -> startGameActivity("Multiplication"));
         divisionButton.setOnClickListener(v -> startGameActivity("Division"));
+        accountSumButton.setOnClickListener(v -> accountSummary());
+
     }
     private void startGameActivity(String operationType) {
         Intent intent = new Intent(MainActivity.this, GameActivity.class);
         intent.putExtra("OperationType", operationType);
+        startActivity(intent);
+    }
+
+    private void accountSummary() {
+        Intent intent = new Intent(MainActivity.this, AccountSum.class);
         startActivity(intent);
     }
     @Override

@@ -45,6 +45,12 @@ public class GameLogicActivity extends AppCompatActivity {
         timeLimit = getIntent().getStringExtra("TimeLimit");
         setTitle(operationType);
 
+        // set Random Generators
+        byte[] byteArr = secureRandom.generateSeed(20);
+        byte[] byteArr2 = secureRandom2.generateSeed(15);
+        secureRandom.setSeed(byteArr);
+        secureRandom2.setSeed(byteArr2);
+
         // Generate the first problem
         gameProgressView = findViewById(R.id.gameProgress);
         updateGameProgress();
@@ -55,17 +61,7 @@ public class GameLogicActivity extends AppCompatActivity {
 
     private void generateProblem() {
         int maxNumber = getMaxNumberBasedOnDifficulty();
-//        Random rand = new Random ();
-//        rand.setSeed(seed1);
-//        Random rand2 = new Random ();
-//        rand2.setSeed(seed2);
-
-        byte[] byteArr = secureRandom.generateSeed(10);
-        secureRandom.setSeed(byteArr);
         int num1 = secureRandom.nextInt(maxNumber) + 1;
-
-        byte[] byteArr2 = secureRandom2.generateSeed(10);
-        secureRandom2.setSeed(byteArr2);
         int num2 = secureRandom2.nextInt(maxNumber) + 1;
 
         // Ensure num1 is always the larger number
