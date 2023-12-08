@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
 
         // Get the operation type from MainActivity
         operationType = getIntent().getStringExtra("OperationType");
+        setTitle(operationType);
 
         // Set a listener for the difficulty level RadioGroup
         difficultyRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {

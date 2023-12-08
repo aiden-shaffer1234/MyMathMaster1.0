@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Random;
 
 
 import java.util.Locale;
@@ -23,7 +24,9 @@ public class GameLogicActivity extends AppCompatActivity {
     private int correctAnswers = 0;
     private int incorrectAnswers = 0;
     private int totalQuestions = 0;
+    private int answerCounter = 0;
     private final SecureRandom secureRandom = new SecureRandom();
+    private final SecureRandom secureRandom2 = new SecureRandom();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class GameLogicActivity extends AppCompatActivity {
         operationType = getIntent().getStringExtra("OperationType");
         difficultyLevel = getIntent().getStringExtra("DifficultyLevel");
         timeLimit = getIntent().getStringExtra("TimeLimit");
+        setTitle(operationType);
 
         // Generate the first problem
         gameProgressView = findViewById(R.id.gameProgress);
@@ -51,8 +55,18 @@ public class GameLogicActivity extends AppCompatActivity {
 
     private void generateProblem() {
         int maxNumber = getMaxNumberBasedOnDifficulty();
+//        Random rand = new Random ();
+//        rand.setSeed(seed1);
+//        Random rand2 = new Random ();
+//        rand2.setSeed(seed2);
+
+        byte[] byteArr = secureRandom.generateSeed(10);
+        secureRandom.setSeed(byteArr);
         int num1 = secureRandom.nextInt(maxNumber) + 1;
-        int num2 = secureRandom.nextInt(maxNumber) + 1;
+
+        byte[] byteArr2 = secureRandom2.generateSeed(10);
+        secureRandom2.setSeed(byteArr2);
+        int num2 = secureRandom2.nextInt(maxNumber) + 1;
 
         // Ensure num1 is always the larger number
         num1 = Math.max(num1, num2);
@@ -132,12 +146,19 @@ public class GameLogicActivity extends AppCompatActivity {
             int userAnswer = Integer.parseInt(answerInput.getText().toString());
             int correctAnswer = calculateCorrectAnswer();
             if (userAnswer == correctAnswer) {
+                answerCounter = 0;
                 correctAnswers++;
                 Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
                 generateProblem(); // Generate a new problem
             } else {
-                incorrectAnswers++;
+                answerCounter++;
                 Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+
+                if(answerCounter == 3)
+                {
+                    incorrectAnswers++;
+                    generateProblem();
+                }
             }
             updateGameProgress();
 
@@ -147,6 +168,7 @@ public class GameLogicActivity extends AppCompatActivity {
     }
 
     private void updateGameProgress() {
+        totalQuestions = correctAnswers + incorrectAnswers;
         String progressText = correctAnswers + "/" + totalQuestions;
         gameProgressView.setText(progressText);
     }
@@ -162,14 +184,13 @@ public class GameLogicActivity extends AppCompatActivity {
             case "Multiplication":
                 return num1 * num2;
             case "Division":
-                return num1 / num2; // Integer division for 'floor' result
+                return round((double) num1 / num2); // Integer division for rounded result
             default:
                 return 0;
         }
     }
 
     public void onSubmitClick(View view) {
-
         checkAnswer();
     }
 
@@ -184,6 +205,17 @@ public class GameLogicActivity extends AppCompatActivity {
         intent.putExtra("IncorrectAnswers", incorrectAnswers);
         startActivity(intent);
         finish();
+    }
+
+    private int round(double d){
+        double dAbs = Math.abs(d);
+        int i = (int) dAbs;
+        double result = dAbs - (double) i;
+        if(result<0.5){
+            return d<0 ? -i : i;
+        }else{
+            return d<0 ? -(i+1) : i+1;
+        }
     }
 
 }

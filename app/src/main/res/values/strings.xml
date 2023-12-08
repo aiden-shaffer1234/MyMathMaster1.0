@@ -42,6 +42,8 @@
     <string name="hard">Hard</string>
     <string name="medium">Medium</string>
     <string name="easy">Easy</string>
+    <string name="choose_topic">Choose Topic:</string>
+    <string name="see_account_summary">See Account Summary</string>
     <string-array name="time_array">
         <item>1:00</item>
         <item>1:30</item>
