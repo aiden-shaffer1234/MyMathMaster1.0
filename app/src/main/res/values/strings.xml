@@ -44,6 +44,16 @@
     <string name="easy">Easy</string>
     <string name="choose_topic">Choose Topic:</string>
     <string name="see_account_summary">See Account Summary</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="overall_0">Overall %</string>
+    <string name="correct_sum">Correct</string>
+    <string name="operation">Operation</string>
+    <string name="_0">0%</string>
+    <string name="_incorrect">Incorrect</string>
+    <string name="_multiplication">Multiplication</string>
+    <string name="total">Total</string>
+    <string name="performance_summary">Performance Summary</string>
+    <string name="_addition">Addition</string>
     <string-array name="time_array">
         <item>1:00</item>
         <item>1:30</item>

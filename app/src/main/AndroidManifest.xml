@@ -13,27 +13,28 @@
         android:theme="@style/Theme.MyMathMaster"
         tools:targetApi="31">
         <activity
+            android:name=".AccountSum"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".GameActivity"
             android:exported="false"
             android:label="@string/title_activity_gameA"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".GameLogicActivity"
             android:exported="false"
             android:label="GameLogicActivity"
-            android:parentActivityName=".GameActivity"
-            />
+            android:parentActivityName=".GameActivity" />
         <activity
             android:name=".ResultsActivity"
             android:exported="false"
             android:label="ResultsActivity"
-            android:parentActivityName=".GameLogicActivity"
-            />
+            android:parentActivityName=".GameLogicActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

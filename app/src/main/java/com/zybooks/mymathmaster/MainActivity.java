@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         subtractionButton = findViewById(R.id.subtraction);
         multiplicationButton = findViewById(R.id.multiplication);
         divisionButton = findViewById(R.id.division);
+        accountSumButton = findViewById(R.id.accountSum);
 
         // Set click listeners for buttons
         additionButton.setOnClickListener(v -> startGameActivity("Addition"));

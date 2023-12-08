@@ -1,0 +1,282 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/performance_summary"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        />
+
+    <!--    android:textColor="?android:textColorPrimary"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/operation"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/correct"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/correct_sum"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/incorrect"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="  Incorrect"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/overallPerformance"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="  Overall %"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <!-- Addition Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_addition"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/correctAddition"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/incorrectAddition"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/overallPerformanceAddition"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_0"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!-- Subtraction Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Subtraction"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/correctSubtraction"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/incorrectSubtraction"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/overallPerformanceSubtraction"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_0"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!-- Multiplication Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_multiplication"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/correctMultiplication"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/incorrectMultiplication"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/overallPerformanceMultiplication"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_0"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!-- Multiplication Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Division"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/correctDivision"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/incorrectDivision"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/overallPerformanceDivision"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_0"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!-- Multiplication Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/total"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/correctTotal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/incorrectTotal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/zero"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/overallPerformanceTotal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/_0"
+            android:textSize="15sp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginVertical="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/summarylogo" />
+
+</LinearLayout>
