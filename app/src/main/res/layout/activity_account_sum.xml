@@ -188,7 +188,7 @@
             android:layout_height="match_parent"/>
     </LinearLayout>
 
-    <!-- Multiplication Section -->
+    <!-- Division Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
             android:layout_height="match_parent"/>
     </LinearLayout>
 
-    <!-- Multiplication Section -->
+    <!-- Total Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

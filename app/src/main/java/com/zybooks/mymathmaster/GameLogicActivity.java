@@ -8,11 +8,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zybooks.mymathmaster.model.MathCategory;
+import com.zybooks.mymathmaster.repo.MathCategoryRepository;
+
 import java.util.Random;
 
 
 import java.util.Locale;
 import java.security.SecureRandom;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class GameLogicActivity extends AppCompatActivity {
     private String operationType;
@@ -27,6 +33,8 @@ public class GameLogicActivity extends AppCompatActivity {
     private int answerCounter = 0;
     private final SecureRandom secureRandom = new SecureRandom();
     private final SecureRandom secureRandom2 = new SecureRandom();
+    private MathCategoryRepository mathCategoryRepository;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +65,45 @@ public class GameLogicActivity extends AppCompatActivity {
         generateProblem();
         timerView = findViewById(R.id.timerView);
         initializeTimer();
+
+        //Initialize Database
+        mathCategoryRepository = new MathCategoryRepository(getApplicationContext());
     }
+
+    private void updateResultsInDatabase() {
+        // You can use Executors to run this in a background thread
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            MathCategory mathCategory = mathCategoryRepository.getMathCategoryById(1); // Get the existing data
+
+            if (mathCategory == null) {
+                mathCategory = new MathCategory(); // Or create a new one if it doesn't exist
+            }
+
+            // Update the data based on operationType
+            switch (operationType) {
+                case "Addition":
+                    mathCategory.correctAddition += correctAnswers;
+                    mathCategory.incorrectAddition += incorrectAnswers;
+                    break;
+                case "Subtraction":
+                    mathCategory.correctSubtraction += correctAnswers;
+                    mathCategory.incorrectSubtraction += incorrectAnswers;
+                    break;
+                case "Multiplication":
+                    mathCategory.correctMultiplication += correctAnswers;
+                    mathCategory.incorrectMultiplication += incorrectAnswers;
+                    break;
+                case "Division":
+                    mathCategory.correctDivision += correctAnswers;
+                    mathCategory.incorrectDivision += incorrectAnswers;
+                    break;
+            }
+
+            mathCategoryRepository.insertOrUpdate(mathCategory); // Insert or update the data
+        });
+    }
+
 
     private void generateProblem() {
         int maxNumber = getMaxNumberBasedOnDifficulty();
@@ -117,6 +163,7 @@ public class GameLogicActivity extends AppCompatActivity {
 
             public void onFinish() {
                 // Time's up, go to Results Activity
+                updateResultsInDatabase();
                 goToResultsActivity();
             }
         }.start();

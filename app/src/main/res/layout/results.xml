@@ -106,7 +106,7 @@
         />
 
     <Button
-        android:id="@+id/skip_button"
+        android:id="@+id/back_to_home"
         android:text="Back to Home"
         android:textSize="30sp"
         app:layout_constraintRight_toRightOf="parent"
@@ -115,6 +115,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="90dp"
-        android:onClick="Skip" />
+        android:onClick="backToHome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
