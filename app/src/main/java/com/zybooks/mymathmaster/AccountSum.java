@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.zybooks.mymathmaster.model.MathCategory;
 import com.zybooks.mymathmaster.repo.MathCategoryRepository;
 
-import org.w3c.dom.Text;
-
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -127,6 +125,11 @@ public class AccountSum extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchDataAndUpdateUI();
     }
 
     @Override
