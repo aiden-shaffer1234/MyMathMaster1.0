@@ -34,6 +34,7 @@ public class GameLogicActivity extends AppCompatActivity {
     private final SecureRandom secureRandom = new SecureRandom();
     private final SecureRandom secureRandom2 = new SecureRandom();
     private MathCategoryRepository mathCategoryRepository;
+    private ExecutorService executorService;
 
 
     @Override
@@ -68,6 +69,9 @@ public class GameLogicActivity extends AppCompatActivity {
 
         //Initialize Database
         mathCategoryRepository = new MathCategoryRepository(getApplicationContext());
+
+        //background thread
+        executorService = Executors.newSingleThreadExecutor();
     }
 
     private void updateResultsInDatabase() {
@@ -187,23 +191,26 @@ public class GameLogicActivity extends AppCompatActivity {
     public void checkAnswer() {
         try {
             int userAnswer = Integer.parseInt(answerInput.getText().toString());
-            int correctAnswer = calculateCorrectAnswer();
-            if (userAnswer == correctAnswer) {
-                answerCounter = 0;
-                correctAnswers++;
-                Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-                generateProblem(); // Generate a new problem
-            } else {
-                answerCounter++;
-                Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+            executorService.execute(()-> {
+                int correctAnswer = calculateCorrectAnswer();
+                runOnUiThread(() -> {
+                    if (userAnswer == correctAnswer) {
+                        answerCounter = 0;
+                        correctAnswers++;
+                        Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                        generateProblem(); // Generate a new problem
+                    } else {
+                        answerCounter++;
+                        Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
 
-                if(answerCounter == 3)
-                {
-                    incorrectAnswers++;
-                    generateProblem();
-                }
-            }
-            updateGameProgress();
+                        if (answerCounter == 3) {
+                            incorrectAnswers++;
+                            generateProblem();
+                        }
+                    }
+                    updateGameProgress();
+                });
+            });
 
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
