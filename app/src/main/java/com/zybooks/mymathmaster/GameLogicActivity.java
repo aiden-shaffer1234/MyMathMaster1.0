@@ -1,5 +1,6 @@
 package com.zybooks.mymathmaster;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -268,4 +269,11 @@ public class GameLogicActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        updateResultsInDatabase();
+        gameTimer.cancel();
+    }
 }

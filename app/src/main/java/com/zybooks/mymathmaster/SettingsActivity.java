@@ -71,8 +71,6 @@ public class SettingsActivity extends AppCompatActivity {
                     return true;
                 });
             }
-
-
         }
 
         private void resetScoresInDatabase() {
